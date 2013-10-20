@@ -1,0 +1,836 @@
+
+
+@charset "utf-8";
+/* CSS Document */
+
+/**
+ * Correct `block` display not defined in IE 6/7/8/9 and Firefox 3.
+ */
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+nav,
+section,{
+    display: block;
+}
+
+/**
+ * Correct `inline-block` display not defined in IE 6/7/8/9 and Firefox 3.
+ */
+
+audio,
+canvas,
+video {
+    display: inline-block;
+    *display: inline;
+    *zoom: 1;
+}
+
+/**
+ * Prevent modern browsers from displaying `audio` without controls.
+ * Remove excess height in iOS 5 devices.
+ */
+
+audio:not([controls]) {
+    display: none;
+    height: 0;
+}
+
+/**
+ * Address styling not present in IE 7/8/9, Firefox 3, and Safari 4.
+ * Known issue: no IE 6 support.
+ */
+
+[hidden] {
+    display: none;
+}
+
+/* ==========================================================================
+   Base
+   ========================================================================== */
+
+/**
+ * 1. Correct text resizing oddly in IE 6/7 when body `font-size` is set using
+ *    `em` units.
+ * 2. Prevent iOS text size adjust after orientation change, without disabling
+ *    user zoom.
+ */
+
+html {
+    font-size: 100%; /* 1 */
+    -webkit-text-size-adjust: 100%; /* 2 */
+    -ms-text-size-adjust: 100%; /* 2 */
+    overflow-y: scroll;
+}
+
+
+		::-moz-selection {
+		  background: #29abe2;
+		  color: #fff;
+		  text-shadow: none;
+		}
+
+		::selection {
+		  background: #29abe2;
+		  color: #fff;
+		  text-shadow: none;
+		}
+
+/**
+ * Address `font-family` inconsistency between `textarea` and other form
+ * elements.
+ */
+
+html,
+button,
+input,
+select,
+textarea {
+    font-family: sans-serif;
+}
+
+/**
+ * Address margins handled incorrectly in IE 6/7.
+ */
+
+body {
+    margin: 0;
+}
+/*
+ * Clearfix: contain floats
+ */
+*,
+*:after,
+*:before {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
+}
+
+/* Clearfix hack by Nicolas Gallagher: http://nicolasgallagher.com/micro-clearfix-hack/ */
+.clearfix:before,
+.clearfix:after {
+    content: " ";
+    display: table;
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+.clearfix {
+    *zoom: 1;
+}
+
+html, body{
+    font-family: 'Lato', Calibri, Arial, sans-serif;
+    background:#eee;
+    font-weight: 300;
+    font-size: 15px;
+    color: #333;
+	width:100%;
+	height:100%;
+}
+
+h1,h2,h3,h4{font-family: 'Lato', Calibri, Arial, sans-serif;}
+
+a{text-decoration:none;color:#3caeef}
+/* line 76, sass/bootstrap.scss */
+a:focus {
+  outline: thin dotted #333;
+  outline: 5px auto -webkit-focus-ring-color;
+  outline-offset: -2px;
+}
+
+/* line 83, sass/bootstrap.scss */
+a:hover,
+a:active {
+  outline: 0;
+}
+
+//Variables & mixins ---------------------SASS------------------------------------
+
+$color-link:#555;
+$color-link-hover:#fff;
+
+//Main key colors
+$red-color:rgba(201, 82, 38, 1);
+$green-color:rgba(161, 188, 48, 1);
+$blue-color:rgba(29, 38, 107, 1);
+$black-color:rgba(106, 106, 106, 1);
+
+$portal-color:$blue-color;
+$forloeb-color:$green-color;
+$apps-color:$black-color;
+$resource-color:$red-color;
+
+
+@mixin box-shadow($top, $left, $blur, $color, $inset: false) {
+  @if $inset {
+    -webkit-box-shadow:inset $top $left $blur $color;
+    -moz-box-shadow:inset $top $left $blur $color;
+    box-shadow:inset $top $left $blur $color;
+  } @else {
+    -webkit-box-shadow: $top $left $blur $color;
+    -moz-box-shadow: $top $left $blur $color;
+    box-shadow: $top $left $blur $color;
+  }
+}
+
+//------------------------------------END SASS------------------------------------
+
+.centerfix{margin: 0 auto;padding-left:10px; position:relative;}
+
+/* tooltip styling. by default the element to be styled is .tooltip  */
+.tooltip-marker{  
+	  outline: none;
+	  cursor: help; text-decoration: none;
+	  position: relative;
+	  border-bottom:1px dotted #3caeef; color:#3caeef;
+	  
+	  
+	}
+.tooltip {
+    display:none;
+    background:#000;
+    border:1px solid #fff;
+	@include box-shadow(0px, 1px, 2px, rgba(40,40,40,1), $inset: false);
+    max-width: 455px;
+    font-size:14px;font-weight:400;
+    padding:10px;
+    color:#fff;
+    z-index: 10001;
+  }
+
+//Frontpage
+
+#splashvideo{width:502px;margin:130px auto 0 auto;border:1px solid #ccc;}
+
+.call-to-action{width:325px;height:70px;margin:20px auto 0 auto;}
+.call-to-action a{
+	text-align:center;width:110px;height:35px;position:relative;float:left;color:#fff;font-size:14px;text-transform:uppercase;font-weight:700;
+	padding:7px 6px 0 6px;margin:15px 0 20px 20px;cursor:pointer;
+	i{margin-right:8px;font-size:19px;}
+	@include box-shadow(0px, 1px, 2px, rgba(40,40,40, .6), $inset: false);
+}
+.call-to-action a.start{background:$green-color}
+.call-to-action a.more{background:$black-color}
+
+.modal {
+    background-color:#fff;
+    display:none;
+    width:800px;
+    padding:30px;
+    border:1px solid #333;
+    z-index: 30000;
+    -moz-box-shadow: 0 0 50px #ccc;
+    -webkit-box-shadow: 0 0 50px #ccc;
+  }
+ 
+  .modal h2 {
+  	color:#444;
+    border-bottom:1px solid #444;
+    font-size:27px;
+    text-transform: uppercase;
+  }
+  .modal p{
+  	margin:20px 0 20px 0;
+	font-size:18px;
+  }
+
+//Frontpage 2
+
+.container {
+	width: 100%;
+	min-height:100%;
+	position: relative;
+	margin-bottom:-95px;
+}
+.main{margin-bottom:20px;padding-top:130px;}
+
+
+.og-grid {
+	list-style: none;
+	padding: 0 0 40px 0;
+	margin: 0 auto 0 auto;
+	text-align: center;
+	width: 100%;
+}
+
+.og-grid li {
+	display: inline-block;
+	margin: 10px 5px 30px 5px;
+	vertical-align: top;
+	height: 250px;
+	@include box-shadow(0px, 1px, 1px, rgba(40,40,40,0.6), $inset: false);
+}
+.og-grid li:hover{@include box-shadow(0px, 1px, 2px, rgba(40,40,40,1), $inset: false);}
+
+.og-grid li > a,
+.og-grid li > a img {
+	border: none;
+	outline: none;
+	display: block;
+	position: relative;
+}
+
+//APP SECTION PLACEHOLDER ---- DELETE WHEN APPS ARE LAUNCHED 
+.og-grid li > .apps_placeholder,
+.og-grid li > .apps_placeholder img{
+	border: none;
+	outline: none;
+	display: block;
+	position: relative;
+}
+
+.apps_placeholder .icon-wrapper{top:60px;left:10px}
+#coming-soon{width:144px;height:144px;position: absolute;top:8px;right:-8px;}
+
+//END APP SECTION/////////
+
+
+
+.og-grid li:first-child{background:$portal-color}
+.og-grid li:nth-child(2){background:$forloeb-color}
+.og-grid li:nth-child(3){background:$apps-color}
+.og-grid li:nth-child(4){background:$resource-color}
+
+
+
+.icon-wrapper{
+	width:250px;position: absolute;top:50px;left:0;color:#fff;
+	i{font-size:120px;text-align:center}
+	h2{font-size:25px;font-weight:400;}
+	}
+.og-grid span{font-weight:300;position: absolute;bottom:8px;right:8px;font-size:16px;color:#fff}
+
+.og-grid li.og-expanded > a::after {
+	top: auto;
+	border: solid transparent;
+	content: " ";
+	height: 0;
+	width: 0;
+	position: absolute;
+	z-index: 200;
+	pointer-events: none;
+	border-bottom-color: #bbb;
+	border-width: 15px;
+	left: 50%;
+	margin: -20px 0 0 -15px;
+}
+
+.og-expander {
+	position: absolute;
+	background: #bbb;
+	top: auto;
+	left: 0;
+	width: 100%;
+	border-top: 10px solid #eee;
+	text-align: left;
+	height: 0;
+	overflow: hidden;
+}
+
+.og-expander-inner {
+	padding: 50px 30px;
+	height: 100%;
+}
+
+.og-close {
+	position: absolute;
+	width: 40px;
+	height: 40px;
+	top: 20px;
+	right: 20px;
+	cursor: pointer;
+}
+
+.og-close::before,
+.og-close::after {
+	content: '';
+	position: absolute;
+	width: 100%;
+	top: 50%;
+	height: 3px;
+	background: #666;
+	-webkit-transform: rotate(45deg);
+	-moz-transform: rotate(45deg);
+	transform: rotate(45deg);
+}
+
+.og-close::after {
+	-webkit-transform: rotate(-45deg);
+	-moz-transform: rotate(-45deg);
+	transform: rotate(-45deg);
+}
+
+.og-close:hover::before,
+.og-close:hover::after {
+	background: #333;
+}
+
+.og-fullimg,
+.og-details {
+	width: 50%;
+	float: left;
+	height: 100%;
+	overflow: hidden;
+	position: relative;
+}
+
+.og-details {
+	padding: 0 40px 0 20px;
+}
+
+.og-fullimg {
+	text-align: center;
+}
+
+.og-fullimg img {
+	display: inline-block;
+	max-height: 100%;
+	max-width: 100%;
+}
+
+.og-fullimg iframe {
+	display: inline-block;
+	max-height: 100%;
+	max-width: 100%;
+}
+
+.og-details h3 {
+	font-weight: 300;
+	font-size: 52px;
+	padding: 40px 0 10px;
+	margin-bottom: 10px;
+}
+
+.og-details p {
+	font-weight: 400;
+	font-size: 16px;
+	line-height: 22px;
+	color: #444;
+}
+
+.og-details a {
+	font-weight: 700;
+	font-size: 16px;
+	color: #333;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+	padding: 10px 20px;
+	border: 3px solid #333;
+	display: inline-block;
+	margin: 30px 0 0;
+	outline: none;
+}
+
+.og-details a::before {
+	content: '\2192';
+	display: inline-block;
+	margin-right: 10px;
+}
+
+.og-details a:hover {
+	border-color: #999;
+	color: #999;
+}
+
+
+
+@media screen and (max-width: 830px) {
+
+	.og-expander h3 { font-size: 32px; }
+	.og-expander p { font-size: 13px; }
+	.og-expander a { font-size: 12px; }
+
+}
+
+@media screen and (max-width: 650px) {
+
+	.og-fullimg { display: none; }
+	.og-details { float: none; width: 100%; }
+	
+}
+
+//About Pages
+.about{position:relative;max-width:600px;margin:130px auto 100px auto;padding:10px;font-weight:400;
+	h2{font-size:35px;}
+	p{font-size:20px;margin-bottom:20px;}
+}
+
+
+//Contentpages
+header{position:fixed;z-index:10000;width:100%;height:70px;top:0;background:#fff;color:#fff;text-transform:uppercase; border-bottom: 1px solid #e6e7e8;
+	@include box-shadow(0px, 1px, 1px, rgba(50,50,50,0.2), $inset: false);
+}
+
+footer{height:95px;background:#fff;border-top:1px solid #ccc;
+	.footer_wrapper{max-width:1060px;padding-top:5px}
+	#footer_links{float:left;}
+	p{color:#666;font-size:13px;font-weight:400;padding:5px 0 5px 0}
+	.footer_links a{text-decoration:underline;font-size:12px;}
+	a{color:#666}
+	a:hover{color:#29abe2}
+	.fb-follow{float:right;margin-top:10px;}
+}
+
+#logo{	
+	position:relative;float:left;text-decoration:none;width:200px;margin-top:5px;
+	img{float:left;position:relative;}
+	h1{text-indent:-9999px;}
+}
+nav{max-width:1060px}
+
+.main_navigation{
+		position:relative;float:right;text-transform:uppercase; 
+		li{float:left;display:inline;margin:0;padding:0;border-left:1px solid #ccc;}
+		.resource{border-right:1px solid #ccc}
+		a{font-size:38px;text-align:center;line-height:1.8;color:#ccc;text-decoration:none;display:block;margin:0;height:70px;width:70px;}
+		a:hover{color:#fff;}
+
+		.portal a{border-top:3px solid $portal-color;}
+		.forloeb a{border-top:3px solid $forloeb-color}
+		.apps a{border-top:3px solid $apps-color}
+		.resource a{border-top:3px solid $resource-color}
+
+		.portal:hover {background:$portal-color;}
+		.forloeb:hover {background:$forloeb-color}
+		.apps:hover {background:$apps-color}
+		.resource:hover {background:$resource-color}
+
+		.active_main_nav{color:#fff}
+		.portal .active_main_nav{background:$portal-color}
+		.forloeb .active_main_nav{background:$forloeb-color}
+		.apps .active_main_nav{background:$apps-color}
+		.resource .active_main_nav{background:$resource-color;}
+
+	}
+
+
+.navigation{
+	position:fixed;
+	z-index:1;
+	top:100px;
+	left:10px;
+	border-right:1px solid #444;
+	padding:1em 0 1em 0;
+	width:200px;
+	font-size:15px;
+	font-weight:400;
+	text-transform:uppercase;
+
+}
+.navigation li{
+	color:$color-link;
+	display:block;
+	padding: 0 10px;
+	line-height:50px;
+	margin-bottom:2px;
+	text-align:right;
+	
+	cursor:pointer;
+}
+.navigation li:hover{color:#fff;background:#444 url('../images/arrow-right.png') no-repeat 5px 15px}
+.navigation .active{color:#fff;background:#444 url('../images/arrow-right.png') no-repeat 5px 15px}
+
+.navigation h3{font-size:28px;color:#444; margin-bottom:20px;padding:10px;text-align:right;border-bottom:1px solid #444}
+
+.slide{
+	background-attachment: fixed;
+	width:100%;
+	min-height:100%;
+	position: relative;
+	overflow:hidden;
+
+}
+.wrapper{
+	width:960px;
+	margin:0 auto;
+	position:relative;
+}
+.slideno{
+	position:absolute;
+	bottom:0px;
+	left:0px;
+	font-size:380px;
+	font-weight:700;
+	color:rgba(255,255,255,0.1);
+}
+.button{
+	display:block;
+	width:50px;
+	height:50px;
+	position:absolute;
+	z-index:9;
+	bottom:0px;
+	left:50%;
+	background-color:#333333;
+	background-image:url(../images/arrow.png);
+}
+.button:hover{
+	background-color:#494949;
+	cursor:pointer;
+}
+
+
+$portalslide-color:  rgba( $blue-color, .1 );
+$portalslide1-color: rgba( $blue-color, .3 );
+$portalslide2-color: rgba( $blue-color, .5 );
+$portalslide3-color: rgba( $blue-color, .7 );
+$portalslide4-color: rgba( $blue-color, .9 );
+/******************************
+ SLIDE 1 
+*******************************/
+.portal #slide1{
+	background-color:$portalslide-color;
+}
+/******************************
+ SLIDE 2 
+*******************************/
+.portal #slide2{
+	background-color:$portalslide1-color;
+	
+}
+
+/******************************
+ SLIDE 3 
+*******************************/
+.portal #slide3{
+	background-color:$portalslide2-color;
+}
+
+/******************************
+ SLIDE 4 
+*******************************/
+
+.portal #slide4{
+	background-color:$portalslide3-color;
+}
+/******************************
+ SLIDE 5 
+*******************************/
+
+.portal #slide5{
+	background-color:$portalslide4-color;
+}
+
+
+$forloebslide-color:  rgba( $green-color, .1 );
+$forloebslide1-color: rgba( $green-color, .3 );
+$forloebslide2-color: rgba( $green-color, .5 );
+$forloebslide3-color: rgba( $green-color, .7 );
+$forloebslide4-color: rgba( $green-color, .9 );
+/******************************
+ SLIDE 1 
+*******************************/
+#slide1{
+	background-color:$forloebslide-color;
+	
+}
+/******************************
+ SLIDE 2 
+*******************************/
+#slide2{
+	background-color:$forloebslide1-color;
+	
+}
+
+/******************************
+ SLIDE 3 
+*******************************/
+#slide3{
+	background-color:$forloebslide2-color;
+}
+
+/******************************
+ SLIDE 4 
+*******************************/
+
+#slide4{
+	background-color:$forloebslide3-color;
+}
+/******************************
+ SLIDE 5 
+*******************************/
+
+#slide5{
+	background-color:$forloebslide4-color;
+}
+
+
+
+$appsslide-color:  #5c5c5c;
+$appsslide1-color: rgba( $black-color, .3 );
+$appsslide2-color: rgba( $black-color, .5 );
+$appsslide3-color: rgba( $black-color, .7 );
+$appsslide4-color: rgba( $black-color, .9 );
+/******************************
+ SLIDE 1 
+*******************************/
+
+.apps #slide1{
+	background-color:$appsslide-color;
+	
+}
+/******************************
+ SLIDE 2 
+*******************************/
+.apps #slide2{
+	background-color:$appsslide1-color;
+	
+}
+
+/******************************
+ SLIDE 3 
+*******************************/
+.apps #slide3{
+	background-color:$appsslide2-color;
+}
+
+/******************************
+ SLIDE 4 
+*******************************/
+
+.apps #slide4{
+	background-color:$appsslide3-color;
+}
+/******************************
+ SLIDE 5 
+*******************************/
+
+.apps #slide5{
+	background-color:$appsslide4-color;
+}
+
+$delelementslide-color:  rgba( $red-color, .1 );
+$delelementslide1-color: rgba( $red-color, .3 );
+$delelementslide2-color: rgba( $red-color, .5 );
+$delelementslide3-color: rgba( $red-color, .7 );
+$delelementslide4-color: rgba( $red-color, .9 );
+/******************************
+ SLIDE 1 
+*******************************/
+
+.delelement #slide1{
+	background-color:$delelementslide-color;
+	
+}
+/******************************
+ SLIDE 2 
+*******************************/
+.delelement #slide2{
+	background-color:$delelementslide1-color;
+	
+}
+
+/******************************
+ SLIDE 3 
+*******************************/
+.delelement #slide3{
+	background-color:$delelementslide2-color;
+}
+
+/******************************
+ SLIDE 4 
+*******************************/
+
+.delelement #slide4{
+	background-color:$delelementslide3-color;
+}
+/******************************
+ SLIDE 5 
+*******************************/
+
+.delelement #slide5{
+	background-color:$delelementslide4-color;
+}
+
+
+
+
+.question_wrapper{
+  -webkit-box-shadow: 1px 1px 2px 0px #5c5c5c;
+          box-shadow: 1px 1px 2px 0px #5c5c5c;
+	width:600px;min-height:400px;padding:1em;background:#fff;color:#666;position:relative;
+	margin-top:100px;margin-bottom:70px;clear:both;font-size:21px;font-weight:400;
+	h2{font-size:47px;color:#666;margin-bottom:15px;font-weight:700;text-transform:uppercase;text-shadow: 0px 1px 1px #8c8b8b;}	
+}
+
+
+ol {
+    counter-reset:li; /* Initiate a counter */
+    margin-left:0; /* Remove the default left margin */
+    padding-left:0; /* Remove the default left padding */
+}
+ol > li {
+    position:relative; /* Create a positioning context */
+    margin:0 0 32px 2em; /* Give each list item a left margin to make room for the numbers */
+    padding:4px 8px; /* Add some spacing around the content */
+    list-style:none; /* Disable the normal item numbering */
+    border-top:2px solid #666;
+}
+ol > li:before {
+    content:counter(li); /* Use the counter as content */
+    counter-increment:li; /* Increment the counter by 1 */
+    /* Position and style the number */
+    position:absolute;
+    top:-2px;
+    left:-2em;
+    -moz-box-sizing:border-box;
+    -webkit-box-sizing:border-box;
+    box-sizing:border-box;
+    width:2em;
+    /* Some space between the number and the content in browsers that support
+       generated content but not positioning it (Camino 2 is one example) */
+    margin-right:8px;
+    padding:4px;
+    border-top:2px solid #666;
+    color:#fff;
+    background:#666;
+    font-weight:bold;
+    text-align:center;
+}
+.question_wrapper li p:nth-child(2){color:#848484;font-size:15px; font-style:italic}
+.question_wrapper li ol,
+li ul {margin-top:6px;}
+.question_wrapper ol ol li:last-child {margin-bottom:0;}
+
+.question_wrapper .btn{background:#666;color:#fff;padding:4px;font-family: 'Lato', sans-serif;font-weight:400;font-size:13px;cursor:pointer;text-transform:uppercase;}
+
+
+
+//media queries
+@media screen and (max-width: 1070px) {
+
+	.question_wrapper{margin-left: 230px}
+	.tuborg{display:none}
+
+}
+
+/* iPads (portrait and landscape) ----------- */
+@media only screen 
+and (min-device-width : 768px) 
+and (max-device-width : 1024px) {
+	.question_wrapper{margin-left: 230px}
+	.tuborg{display:none}
+}
+
+/* iPads (landscape) ----------- */
+@media only screen 
+and (min-device-width : 768px) 
+and (max-device-width : 1024px) 
+and (orientation : portrait) {
+
+ 	.question_wrapper{width:730px;font-size:25px;}
+	.question_wrapper li p:nth-child(2){font-size:17px}
+
+}
